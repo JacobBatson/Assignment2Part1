@@ -11,6 +11,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,6 +28,8 @@ import androidx.compose.ui.unit.dp
 import com.example.assignment2part1.ui.theme.Assignment2Part1Theme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,28 +55,53 @@ fun ImageCard(headerImage: Painter,modifier: Modifier = Modifier) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFEDEDED)),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.TopCenter
     ){
         Image(
             painter = headerImage,
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(600.dp),
+                .height(400.dp),
             contentScale = ContentScale.Crop
         )
     }
 }
 
 @Composable
-fun MovieDetails(length: String, language: String, rating: Float, review: String, modifier: Modifier = Modifier){
+fun MovieDetails(length: String, language: String, rating: Double, review: String, modifier: Modifier = Modifier){
     Row(
         modifier = Modifier
     ){
         Column(modifier = Modifier) {
-            Text()
+            Text("Length", fontSize = 54.sp)
+            Spacer(modifier = Modifier.padding(10.dp))
+            Text(length, fontWeight = FontWeight.Bold, fontSize = 54.sp)
+        }
+        Column(modifier = Modifier) {
+            Text("Lang", fontSize = 54.sp)
+            Spacer(modifier = Modifier.padding(10.dp))
+            Text(length, fontWeight = FontWeight.Bold, fontSize = 54.sp)
+        }
+
+        Column(modifier = Modifier) {
+            Text("Rating", fontSize = 54.sp)
+            Spacer(modifier = Modifier.padding(10.dp))
+            Text(length, fontWeight = FontWeight.Bold, fontSize = 54.sp)
+        }
+
+        Column(modifier = Modifier) {
+            Text("Review", fontSize = 54.sp)
+            Spacer(modifier = Modifier.padding(10.dp))
+            Text(length, fontWeight = FontWeight.Bold, fontSize = 54.sp)
         }
     }
+}
+@Preview(showBackground = true)
+@Composable
+fun DemoScreen(){
+    ImageCardPreview()
+    MovieDetailsPreview()
 }
 
 @Preview(showBackground = false)
@@ -87,7 +115,5 @@ fun ImageCardPreview() {
 @Preview(showBackground = true)
 @Composable
 fun MovieDetailsPreview(){
-    MovieDetailsPreview(
-
-    )
+    MovieDetails(length = "7.2", language = "foo", rating = 7.23, review = "34")
 }
