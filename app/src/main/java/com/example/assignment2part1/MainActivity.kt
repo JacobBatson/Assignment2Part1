@@ -1,6 +1,7 @@
 package com.example.assignment2part1
 
-import android.R
+import android.R.drawable
+import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -32,9 +35,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             Assignment2Part1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    ImageCard(
+                        painterResource(id= R.drawable.endgame)
                     )
                 }
             }
@@ -57,16 +59,35 @@ fun ImageCard(headerImage: Painter,modifier: Modifier = Modifier) {
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(140.dp),
+                .height(600.dp),
             contentScale = ContentScale.Crop
         )
     }
 }
 
-@Preview(showBackground = true)
+@Composable
+fun MovieDetails(length: String, language: String, rating: Float, review: String, modifier: Modifier = Modifier){
+    Row(
+        modifier = Modifier
+    ){
+        Column(modifier = Modifier) {
+            Text()
+        }
+    }
+}
+
+@Preview(showBackground = false)
 @Composable
 fun ImageCardPreview() {
     ImageCard(
-        headerImage = painterResource(id = R.drawable.engame)
+        headerImage = painterResource(id = R.drawable.endgame)
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MovieDetailsPreview(){
+    MovieDetailsPreview(
+
     )
 }
