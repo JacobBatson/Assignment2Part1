@@ -1,3 +1,6 @@
+//Jacob Batson
+//Moe Alokla
+
 package com.example.assignment2part1
 
 import android.os.Bundle
